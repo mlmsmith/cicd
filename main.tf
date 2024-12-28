@@ -8,9 +8,13 @@ terraform {
   required_version = ">=1.1.0"
 }
 
-# provider and configuration block
-# This declares and configures the AzureRM (Azure Resource Manager) provider for Terraform
-
 provider "azurerm" {
   features {}
+}
+
+resource "azurerm_resource_group" "rg" {
+  name = var.resource_group_name
+  location = var.location
+  tags = var.tags
+
 }

@@ -16,5 +16,14 @@ resource "azurerm_resource_group" "rg" {
   name = var.resource_group_name
   location = var.location
   tags = var.tags
+}
 
+module "storage_account" {
+  "./modules/storage_account/storage_account"
+
+  resource_group_name = var.resource_group_name
+  destination_folder_name = var.storage_account_name
+  location = var.location
+  source_folder_name = var.source_folder_name
+  destination_folder_name = var.destination_folder_name
 }

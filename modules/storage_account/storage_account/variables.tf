@@ -8,7 +8,6 @@ variable "resource_group_name" {
   type = string
 }
 
-
 variable "location" {
   description = "The location/region of the resource"
   type = string
@@ -29,3 +28,4 @@ variable "container_access_type" {
   type = string
   default = "private"
 }
+

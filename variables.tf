@@ -10,7 +10,7 @@ variable "location" {
 
 variable "tags" {
   description = "The tags associated with the resource"
-  type = string
+  type = map(string)
 }
 
 variable "destination_folder_name" {

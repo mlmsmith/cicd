@@ -27,3 +27,8 @@ variable "source_folder_name" {
   description = "The name of the source folder"
   type = string
 }
+
+variable "subscription_id" {
+  description = "The subscription ID to use for Azure resources"
+  type        = string
+}

@@ -52,3 +52,21 @@ resource "azurerm_data_factory_dataset_binary" "destination_dataset" {
     path     = "destination"
   }
 }
+
+resource "azurerm_data_factory_pipeline" "copy_data" {
+  name = "copy_data_pipeline"
+  data_factory_id = azurerm_data_factory.adf.id
+
+  activities_json = <<JSON
+[
+  {
+    "name": "CopyFromSourceToDestination",
+    "type": "Copy"
+    "inputs": [
+      {"name":"source_dataset"}
+    ],
+    "outputs"
+  }
+]
+JSON
+}

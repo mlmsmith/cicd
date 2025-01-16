@@ -32,3 +32,8 @@ variable "subscription_id" {
   description = "The subscription ID to use for Azure resources"
   type        = string
 }
+
+variable "df_name" {
+  description = "The name of the data factory"
+  type = string
+}

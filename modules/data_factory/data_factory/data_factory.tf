@@ -57,18 +57,18 @@ resource "azurerm_data_factory_pipeline" "copy_data" {
   name = "copy_data_pipeline"
   data_factory_id = azurerm_data_factory.adf.id
 
-  activities_json = <<JSON
+activities_json = <<JSON
 [
   {
     "name": "CopyFromSourceToDestination",
-    "type": "Copy"
+    "type": "Copy",
     "typeProperties": {
       "source": {
         "type": "BinarySource",
-        "recursive": true,
+        "recursive": true
       },
       "sink": {
-        "type": "BinarySink",
+        "type": "BinarySink"
       },
       "enableStaging": false
     },
@@ -78,12 +78,12 @@ resource "azurerm_data_factory_pipeline" "copy_data" {
       "retryIntervalInSeconds": 30,
       "secureOutput": false,
       "secureInput": false
-    }
+    },
     "scheduler": {
       "frequency": "Day",
-      "Interval": 1
-    }
-    "external", true,
+      "interval": 1
+    },
+    "external": true,
     "inputs": [
       {
         "referenceName": "source_dataset",
@@ -92,10 +92,10 @@ resource "azurerm_data_factory_pipeline" "copy_data" {
     ],
     "outputs": [
       {
-        "referenceName":"destination_dataset",
+        "referenceName": "destination_dataset",
         "type": "DatasetReference"
       }
-    ],
+    ]
   }
 ]
 JSON
